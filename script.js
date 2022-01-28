@@ -1,7 +1,7 @@
 const DefaultSize = 16
 
 const body = document.querySelector("body")
-const grid = document.querySelector(".grid-container")
+const grid = document.getElementById("gridContainer")
 
 function setupGrid(size){
   grid.style.gridTemplateColumns = (`repeat(${size}, 1fr`)

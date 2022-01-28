@@ -32,6 +32,8 @@ body {
   height: 94px;
   font-style: italic;
 }
+
+/*MAIN*/
 .main-container {
   background-color: var(--red);
   width: 1080px;
@@ -42,6 +44,50 @@ body {
   border-top: none;
   display: flex;
   align-items: center;
+  flex-direction: column;
+}
+
+.settings {
+  display: flex;
+  margin-top: 50px;
+  width: 750px;
+  justify-content: center;
+  gap: 30px;
+}
+
+button,
+input {
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover,
+input[type='color']:hover {
+  transform: scale(1.05);
+}
+
+button:focus {
+  background-color: var(--drkred);
+}
+
+input{
+  -webkit-appearance: none;
+  width: 80px;
+  height: 40px;
+  border: none;
+  border-radius: 0;
+  box-shadow: rgba(0, 0, 0, 1) 0px 3px 8px;
+}
+
+button {
+  padding: 10px 20px;
+  height: 40px;
+  border-radius: 100px;
+  color: var(--yellow);
+  font-style: italic;
+  background-color: var(--red);
+  border: 2px solid var(--drkred);
+  font-size: 15px;
 }
 
 .grid-container {
@@ -49,7 +95,6 @@ body {
   width: 750px;
   height: 500px;
   margin: auto;
-
 }
 
 @media only screen and (max-width: 1080px) {
