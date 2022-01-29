@@ -1,4 +1,9 @@
-var DefaultSize = 16
+const DefaultSize = 16
+let currentSize = DefaultSize
+
+function setCurrentSize(newSize){
+  currentSize = newSize
+}
 
 const grid = document.getElementById("gridContainer")
 const colorPicker = document.getElementById("color")
@@ -15,8 +20,12 @@ rainbowBtn.onclick = () => rgbColor()
 eraserBtn.onclick = () => eraseColor()
 clearBtn.onclick = () => reloadGrid()
 sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value)
+sizeSlider.onchange = (e) => changeSize(e.target.value)
 
-setupGrid(DefaultSize)
+function changeSize(value){
+  setCurrentSize(value)
+  reloadGrid()
+}
 
 function setupGrid(size){
   grid.style.gridTemplateColumns = (`repeat(${size}, 1fr`)
@@ -55,13 +64,13 @@ function eraseColor(){
   }))
 }
 
-function clear(){
-  grid.innerHTML = ''
-}
-
 function reloadGrid(){
   clear()
-  setupGrid(DefaultSize)
+  setupGrid(currentSize)
+}
+
+function clear(){
+  grid.innerHTML = ''
 }
 
 function blackColor(){
@@ -74,3 +83,5 @@ function blackColor(){
 function updateSizeValue(value) {
   sizeValue.innerHTML = `${value} x ${value}`
 }
+
+setupGrid(DefaultSize)
