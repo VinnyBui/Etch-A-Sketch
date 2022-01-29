@@ -127,7 +127,7 @@ input[type='range']::-webkit-slider-thumb{
   height: 30px;
   border-radius: 25px;
   margin-top: -8px;
-  background: url(/text-width.png);
+  background: url(./pic/text-width.png);
   background-repeat: no-repeat;
 }
 
