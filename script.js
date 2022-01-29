@@ -1,15 +1,22 @@
 var DefaultSize = 16
 
 const grid = document.getElementById("gridContainer")
-const colorBtn = document.getElementById("colorBtn")//done
-const colorPicker = document.getElementById("color")//done
-const rainbowBtn = document.getElementById("rainbowBtn")//done
-const eraserBtn = document.getElementById("eraserBtn")//done
-const clearBtn = document.getElementById("clearBtn")//done
-const blackBtn = document.getElementById("blackBtn") //done
+const colorPicker = document.getElementById("color")
+const rainbowBtn = document.getElementById("rainbowBtn")
+const eraserBtn = document.getElementById("eraserBtn")
+const clearBtn = document.getElementById("clearBtn")
+const blackBtn = document.getElementById("blackBtn") 
 const sizeValue = document.getElementById("sizeValue")
 const sizeSlider = document.getElementById("sizeSlider")
 
+colorPicker.onclick = () => color()
+blackBtn.onclick = () => blackColor()
+rainbowBtn.onclick = () => rgbColor()
+eraserBtn.onclick = () => eraseColor()
+clearBtn.onclick = () => reloadGrid()
+sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value)
+
+setupGrid(DefaultSize)
 
 function setupGrid(size){
   grid.style.gridTemplateColumns = (`repeat(${size}, 1fr`)
@@ -20,60 +27,50 @@ function setupGrid(size){
     grid.appendChild(div).classList.add('box')
   }
 }
-setupGrid(DefaultSize)
 
 function color(){
   colorPicker.addEventListener('input', () => {
     let newColor = document.getElementById("color").value
     const boxs = grid.querySelectorAll('.box')
-    colorBtn.addEventListener('click', () => {
-      boxs.forEach(box => box.addEventListener('mouseover', () => {
-        box.style.background = newColor
-      }))
-    })
+    boxs.forEach(box => box.addEventListener('mouseover', () => {
+      box.style.background = newColor
+    }))
   })
 }
-color()
 
 function rgbColor(){
   const boxs = grid.querySelectorAll('.box')
-  rainbowBtn.addEventListener('click', () => {
-    boxs.forEach(box => box.addEventListener('mouseover', () => {
-      let R = Math.floor(Math.random() * 255)
-      let G = Math.floor(Math.random() * 255)
-      let B = Math.floor(Math.random() * 255)
-      box.style.background = `rgb(${R},${G},${B})`
-    }))
-  })
+  boxs.forEach(box => box.addEventListener('mouseover', () => {
+    let R = Math.floor(Math.random() * 255)
+    let G = Math.floor(Math.random() * 255)
+    let B = Math.floor(Math.random() * 255)
+    box.style.background = `rgb(${R},${G},${B})`
+  }))
 }
-rgbColor()
 
 function eraseColor(){
   const boxs = grid.querySelectorAll('.box')
-  eraserBtn.addEventListener('click', () => {
-    boxs.forEach(box => box.addEventListener('mouseover', () => {
-      box.style.background = 'white'
-    }))
-  })
+  boxs.forEach(box => box.addEventListener('mouseover', () => {
+    box.style.background = 'white'
+  }))
 }
-eraseColor()
 
 function clear(){
-  const boxs = grid.querySelectorAll('.box')
-  clearBtn.addEventListener('click', () => {
-    boxs.forEach((item) => {
-      item.style.background = 'white'
-    })
-  })
+  grid.innerHTML = ''
 }
-clear()
+
+function reloadGrid(){
+  clear()
+  setupGrid(DefaultSize)
+}
 
 function blackColor(){
   const boxs = grid.querySelectorAll('.box')
-  blackBtn.addEventListener('click', () => {
-    boxs.forEach(box => box.addEventListener('mouseover', () => {
-      box.style.background = 'black'
-    }))
-  })
+  boxs.forEach(box => box.addEventListener('mouseover', () => {
+    box.style.background = 'black'
+  }))
 }
-blackColor()
+
+function updateSizeValue(value) {
+  sizeValue.innerHTML = `${value} x ${value}`
+}
