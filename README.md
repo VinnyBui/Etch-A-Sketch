@@ -1,7 +1,7 @@
 # Etch-A-Sketch
 Drawing emulator inspired by the Etch A Sketch toy
 
-Live demo of [RPS](https://vinnybui.github.io/Etch-A-Sketch/)
+Live demo of [Etch A Sketch](https://vinnybui.github.io/Etch-A-Sketch/)
 
 Icon created by Prosymbols Premium - Flaticon
 
