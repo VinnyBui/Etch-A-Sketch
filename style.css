@@ -9,14 +9,16 @@
 }
 
 body {
-  background-color: #ade8f4;
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,230,109,1) 5%, rgba(255,142,142,1) 50%, rgba(230,57,70,1) 99%);
   color: var(--yellow);
   text-align: center;
   padding: 100px 0px 0px;
 }
 
 .header {
-  background-color: var(--red);
+  background: rgb(194,36,49);
+  background: linear-gradient(180deg, rgba(194,36,49,1) 19%, rgba(230,57,70,1) 84%);
   width: 1080px;
   margin: 0 auto;
   height: 94px;
@@ -29,13 +31,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 94px;
+  height: 4px;
   font-style: italic;
+  font-size: 70px;
 }
 
 /*MAIN*/
 .main-container {
-  background-color: var(--red);
+  background: rgb(194,36,49);
+  background: linear-gradient(0deg, rgba(194,36,49,1) 19%, rgba(230,57,70,1) 84%);
   width: 1080px;
   margin: 0 auto;
   height: 700px;
@@ -45,7 +49,6 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
 }
 
 .settings {
@@ -56,6 +59,12 @@ body {
   gap: 30px;
 }
 
+.settings2 {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
 button,
 input {
   cursor: pointer;
@@ -95,18 +104,48 @@ button {
   font-size: 15px;
 }
 
-.settings2 {
-  display: flex;
+input[type=range] {
+  -webkit-appearance: none;
+  background: transparent;
 }
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type='range']::-webkit-slider-runnable-track{
+  height: 10px;
+  border: 1px solid var(--red);
+  border-radius: 5px;
+  background: var(--yellow);
+}
+
+input[type='range']::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 25px;
+  margin-top: -8px;
+  background: url(/text-width.png);
+  background-repeat: no-repeat;
+}
+
+input[type='range']:active::-webkit-slider-thumb {
+  transform: scale(1.15);
+}
+
+/*Grid*/
 .grid-container {
   display: grid;
-  width: 750px;
-  height: 500px;
+  width: 700px;
+  height: 450px;
   margin: auto;
 }
 
 .grid-container div{
-  border: 1px solid black;
+  border: 1px solid rgb(169,169,169,0.3);
+  border-radius: 1px;
 }
 
 @media only screen and (max-width: 1080px) {
@@ -119,6 +158,6 @@ button {
   }
 
   .grid-container {
-    width: 500px;
+    width: 450px;
   }
 }
