@@ -45,11 +45,12 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  gap: 20px;
 }
 
 .settings {
   display: flex;
-  margin-top: 50px;
+  margin-top: 20px;
   width: 750px;
   justify-content: center;
   gap: 30px;
@@ -70,7 +71,11 @@ button:focus {
   background-color: var(--drkred);
 }
 
-input{
+#clearBtn:focus {
+  background-color: var(--red);
+}
+
+input[type='color']{
   -webkit-appearance: none;
   width: 80px;
   height: 40px;
@@ -90,11 +95,18 @@ button {
   font-size: 15px;
 }
 
+.settings2 {
+  display: flex;
+}
 .grid-container {
   display: grid;
   width: 750px;
   height: 500px;
   margin: auto;
+}
+
+.grid-container div{
+  border: 1px solid black;
 }
 
 @media only screen and (max-width: 1080px) {
